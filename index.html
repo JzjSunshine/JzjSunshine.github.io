@@ -196,15 +196,16 @@
 
 <h2 id="二-Makefile编写"><a href="#二-Makefile编写" class="headerlink" title="二.Makefile编写"></a>二.Makefile编写</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ifneq</span> (<span class="variable">$(KERNELRELEASE)</span>,)    </span><br><span class="line"><span class="comment">#kbuild syntax.</span></span><br><span class="line">mymodule-objs :=JZJDriver.o</span><br><span class="line">obj-m :=JZJDriver.o</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">PWD :=<span class="variable">$(<span class="built_in">shell</span> pwd)</span></span><br><span class="line">KVER :=<span class="variable">$(<span class="built_in">shell</span> uname -r)</span></span><br><span class="line">KDIR :=/lib/modules/<span class="variable">$(KVER)</span>/build</span><br><span class="line"><span class="section">all:</span></span><br><span class="line">	<span class="variable">$(MAKE)</span> -C <span class="variable">$(KDIR)</span> M=<span class="variable">$(PWD)</span></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f *.cmd *.o *.mod *.ko *.cmd</span><br><span class="line"><span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
 
+
+
 <p><img src="/.com//C:%5CUsers%5CADMINI~1%5CAppData%5CLocal%5CTemp%5C1583320752367.png" alt="1583320752367"></p>
 <p>该makefile文件会通过执行uname -r命令得到当前运行的内核</p>
 <h2 id="三-动态加载设备"><a href="#三-动态加载设备" class="headerlink" title="三.动态加载设备"></a>三.动态加载设备</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo insmod JZJDriver.ko </span><br><span class="line">cat /proc/devices</span><br><span class="line">sudo mknod /dev/JZJ_Driver c <span class="number">243</span> <span class="number">0</span> <span class="comment">#在我需要在dev里创建设备</span></span><br></pre></td></tr></table></figure>
 
-
-
 <img src="/.com//03/05/%E5%AD%97%E7%AC%A6%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%BC%96%E5%86%99/1583320961442.png" class title="This is an example image">
 
-<p><img src="/.com//D:%5Cself_taught%5Cmyblog%5Csource_posts%5C%E5%AD%97%E7%AC%A6%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%BC%96%E5%86%99%5C1583320961442.png" alt="1583320961442"></p>
+<p>![图片上传失败…(1583320961442.png)]</p>
+<p><img src="/.com//1583320961442.png" alt="这是一个新的博客的图片的说明"> </p>
 <p>查看分配的设备</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls &#x2F;dev</span><br><span class="line">ll &#x2F;dev&#x2F;JZJ_Driver</span><br></pre></td></tr></table></figure>
 
