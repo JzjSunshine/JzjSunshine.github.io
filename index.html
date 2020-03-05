@@ -202,7 +202,7 @@
 <p>该makefile文件会通过执行uname -r命令得到当前运行的内核</p>
 <h2 id="三-动态加载设备"><a href="#三-动态加载设备" class="headerlink" title="三.动态加载设备"></a>三.动态加载设备</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo insmod JZJDriver.ko </span><br><span class="line">cat /proc/devices</span><br><span class="line">sudo mknod /dev/JZJ_Driver c <span class="number">243</span> <span class="number">0</span> <span class="comment">#在我需要在dev里创建设备</span></span><br></pre></td></tr></table></figure>
 
-<img src="/.com//03/05/%E5%AD%97%E7%AC%A6%E9%A9%B1%E5%8A%A8%E7%9A%84%E7%BC%96%E5%86%99/1583320961442.png" class title="This is an example image">
+
 
 <p><img src="/.com//1583320961442.png" alt> </p>
 <p>查看分配的设备</p>
